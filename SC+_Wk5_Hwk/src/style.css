@@ -1,0 +1,105 @@
+body {
+  font-family: "PT Mono", monospace;
+  border: solid;
+  margin: 30px 50px;
+  padding: 50px 80px;
+  border-radius: 280px;
+  border-color: rgba(84, 173, 149, 0.8);
+  width: 93%;
+}
+header {
+  margin-bottom: -50px;
+}
+h1,
+h2 {
+  text-align: center;
+  color: #54ad95;
+}
+
+footer {
+  text-align: center;
+  position: relative;
+  bottom: -50px;
+  color: #7c7c7c;
+}
+
+.container {
+  width: 93%;
+}
+
+.currentWeatherButton {
+  background-color: rgba(84, 173, 149, 0.8);
+  color: #fff;
+  border-radius: 20px;
+  position: relative;
+  border-color: rgba(84, 173, 149, 0.8);
+  box-shadow: transparent;
+  right: 5px;
+}
+
+.fahrenheitTemp {
+  color: #ea6691;
+  text-decoration: none;
+}
+
+.celsiusTemp {
+  color: #7c7c7c;
+  text-decoration: none;
+}
+
+.focalWeather {
+  color: #ea6691;
+  font-family: "Comfortaa", cursive;
+  font-size: 2.5em;
+}
+.todaysWeather {
+  text-align: center;
+  border: solid;
+  border-radius: 100px;
+  border-color: rgba(84, 173, 149, 0.5);
+  margin: 5px 460px;
+  padding: 8px 20px;
+  width: auto;
+  display: inline-block;
+}
+
+.todayCelsius {
+  position: relative;
+  text-align: right;
+  right: 30%;
+  color: #7c7c7c;
+}
+
+.dailyInformation {
+  position: relative;
+  left: 27%;
+  top: -160px;
+}
+
+.dailyHiLos {
+  position: relative;
+  text-align: right;
+  right: 28%;
+  top: -200px;
+}
+
+.searchBar {
+  position: relative;
+  top: -350px;
+  right: -420px;
+  display: block;
+  margin: 0 auto;
+}
+.card {
+  text-align: center;
+}
+.card .card-title {
+  color: #e95989;
+  font-weight: 900;
+  background-color: rgba(84, 173, 149, 0.3);
+  border-radius: 10px;
+  padding: 2px;
+}
+.card .emoji {
+  font-size: xx-large;
+}
