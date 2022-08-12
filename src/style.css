@@ -34,7 +34,8 @@ footer {
   position: relative;
   border-color: rgba(84, 173, 149, 0.8);
   box-shadow: transparent;
-  right: 5px;
+  right: -198px;
+  top: -19px;
 }
 
 .fahrenheitTemp {
@@ -79,7 +80,7 @@ footer {
 .dailyHiLos {
   position: relative;
   text-align: right;
-  right: 28%;
+  right: 22%;
   top: -200px;
 }
 
