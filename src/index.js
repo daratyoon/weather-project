@@ -80,7 +80,7 @@ function formatedDate(date) {
   return `${day} 
   </br>
   ${month} ${dateNow}, ${year}
-   </br>
+  </br>
   ${hour}:${minutes}`;
 }
 
