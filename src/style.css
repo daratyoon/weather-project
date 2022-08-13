@@ -16,6 +16,10 @@ h2 {
   color: #54ad95;
 }
 
+li {
+  text-transform: capitalize;
+}
+
 footer {
   text-align: center;
   position: relative;

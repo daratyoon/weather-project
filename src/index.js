@@ -25,7 +25,11 @@ function showCityTemperature(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#todays-weather-fahrenheit");
+  let dailyDescription = document.querySelector("#daily-condition");
+  let windSpeed = document.querySelector("#daily-wind-speed");
   cityTemperature.innerHTML = `${temperature}°F`;
+  dailyDescription.innerHTML = response.data.weather[0].description;
+  windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
 }
 
 function searchCity(event) {
