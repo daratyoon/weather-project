@@ -3,8 +3,12 @@ function showPositionTemperature(response) {
   let currentCity = document.querySelector("#displayed-city");
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
+  let dailyDescription = document.querySelector("#daily-condition");
+  let windSpeed = document.querySelector("#daily-wind-speed");
   currentTemp.innerHTML = `${temperature}°F`;
   currentCity.innerHTML = `${city}`;
+  dailyDescription.innerHTML = response.data.weather[0].description;
+  windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
 }
 
 function retrievePosition(position) {
