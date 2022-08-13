@@ -89,11 +89,9 @@ footer {
 }
 
 .searchBar {
-  position: relative;
-  top: -350px;
-  right: -420px;
-  display: block;
-  margin: 0 auto;
+  position: absolute;
+  top: 64px;
+  right: 534px;
 }
 .card {
   text-align: center;
