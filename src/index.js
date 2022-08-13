@@ -31,6 +31,7 @@ function showCityTemperature(response) {
   let cityTemperature = document.querySelector("#todays-weather-fahrenheit");
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
+  document.querySelector("#displayed-city").innerHTML = response.data.name;
   cityTemperature.innerHTML = `${temperature}°F`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
