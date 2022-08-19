@@ -12,7 +12,6 @@ function showPositionTemperature(response) {
 }
 
 function retrievePosition(position) {
-  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
@@ -26,7 +25,6 @@ function pressCurrentLocation() {
 }
 
 function showCityTemperature(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#todays-weather-fahrenheit");
   let dailyDescription = document.querySelector("#daily-condition");
