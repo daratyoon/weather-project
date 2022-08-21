@@ -16,6 +16,10 @@ h2 {
   color: #54ad95;
 }
 
+a {
+  text-decoration: none;
+}
+
 li {
   text-transform: capitalize;
 }
