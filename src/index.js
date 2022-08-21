@@ -31,7 +31,7 @@ function pressCurrentLocation() {
 
 function showCityTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
-  let cityTemperature = document.querySelector("#todays-weather-fahrenheit");
+  let cityTemperature = document.querySelector("#fahrenheit-link");
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
   document.querySelector("#displayed-city").innerHTML = response.data.name;
@@ -41,6 +41,7 @@ function showCityTemperature(response) {
   document.querySelector("#daily-low").innerHTML = `Lo ${Math.round(
     response.data.main.temp_min
   )}°F`;
+
   cityTemperature.innerHTML = `${temperature}°F`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
