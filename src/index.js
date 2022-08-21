@@ -29,6 +29,28 @@ function pressCurrentLocation() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+function showCelsiusTemperature(response) {
+  console.log(response.data);
+  let celsiusTemp = document.querySelector("#celsius-link");
+  let dailyHigh = document.querySelector("#daily-high");
+  let dailyLow = document.querySelector("#daily-low");
+
+  celsiusTemp.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°C`;
+  dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°C`;
+}
+
+function retrieveCelsiusTemp(event) {
+  event.preventDefault();
+  let newCity = document.querySelector("#search-city");
+  let city = document.querySelector("#displayed-city");
+  city.innerHTML = `📍 ${newCity.value}`;
+  let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showCelsiusTemperature);
+}
+
 function showCityTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#fahrenheit-link");
@@ -109,6 +131,9 @@ currentDate.innerHTML = formatedDate(todaysDate);
 
 let citySearch = document.querySelector("#search-form");
 citySearch.addEventListener("submit", searchCity);
+
+let celsiusElement = document.querySelector("#celsius-link");
+celsiusElement.addEventListener("click", retrieveCelsiusTemp);
 
 let buttonElement = document.querySelector("#current-weather-button");
 buttonElement.addEventListener("click", pressCurrentLocation);
