@@ -5,10 +5,15 @@ function showPositionTemperature(response) {
   let city = response.data.name;
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
+  let dailyHigh = document.querySelector("#daily-high");
+  let dailyLow = document.querySelector("#daily-low");
+
   currentTemp.innerHTML = `${temperature}°F`;
   currentCity.innerHTML = `${city}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
+  dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
+  dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
 }
 
 function retrievePosition(position) {
