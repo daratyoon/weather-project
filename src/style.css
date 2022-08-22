@@ -8,7 +8,7 @@ body {
   width: 93%;
 }
 header {
-  margin-bottom: -50px;
+  margin-bottom: 65px;
 }
 h1,
 h2 {
@@ -22,6 +22,7 @@ a {
 
 li {
   text-transform: capitalize;
+  list-style: none;
 }
 
 footer {
@@ -70,8 +71,8 @@ footer {
   border: solid;
   border-radius: 100px;
   border-color: rgba(84, 173, 149, 0.5);
-  margin: 5px 460px;
-  padding: 8px 20px;
+  margin: 34px 438px;
+  padding: 29px 26px;
   width: auto;
   display: inline-block;
 }
@@ -84,16 +85,16 @@ footer {
 }
 
 .dailyInformation {
-  position: relative;
-  left: 27%;
-  top: -160px;
+  position: absolute;
+  left: 32%;
+  top: 165px;
 }
 
 .dailyHiLos {
-  position: relative;
+  position: absolute;
   text-align: right;
-  right: 22%;
-  top: -200px;
+  right: 27%;
+  top: 160px;
 }
 
 .searchBar {

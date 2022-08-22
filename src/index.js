@@ -29,8 +29,8 @@ function pressCurrentLocation() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+//
 function showCelsiusTemperature(response) {
-  console.log(response.data);
   let celsiusTemp = document.querySelector("#celsius-link");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
