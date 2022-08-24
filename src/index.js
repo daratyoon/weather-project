@@ -63,6 +63,7 @@ function showCityTemperature(response) {
   let cityTemperature = document.querySelector("#fahrenheit-link");
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
+  let currentIcon = document.querySelector("#current-icon");
   document.querySelector("#displayed-city").innerHTML = response.data.name;
   document.querySelector("#daily-high").innerHTML = `Hi ${Math.round(
     response.data.main.temp_max
@@ -74,6 +75,10 @@ function showCityTemperature(response) {
   cityTemperature.innerHTML = `${temperature}°F`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity(event) {
