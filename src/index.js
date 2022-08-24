@@ -64,7 +64,9 @@ function showCityTemperature(response) {
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
   let currentIcon = document.querySelector("#current-icon");
-  document.querySelector("#displayed-city").innerHTML = response.data.name;
+  document.querySelector(
+    "#displayed-city"
+  ).innerHTML = `📍 ${response.data.name}`;
   document.querySelector("#daily-high").innerHTML = `Hi ${Math.round(
     response.data.main.temp_max
   )}°F`;
