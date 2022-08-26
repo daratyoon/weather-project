@@ -55,7 +55,9 @@ function searchCity(event) {
 }
 
 function showCityTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  fahrenheitTemperature = response.data.main.temp;
+
+  let temperature = Math.round(fahrenheitTemperature);
   let cityTemperature = document.querySelector("#fahrenheit-link");
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
@@ -107,6 +109,34 @@ function showCelsiusTemperature(response) {
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°C`;
 }
 
+function retrieveFahrenheitTemp(event) {
+  event.preventDefault();
+  let newCity = document.querySelector("#search-city");
+  let city = document.querySelector("#displayed-city");
+  city.innerHTML = `📍 ${newCity.value}`;
+
+  let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(showFahrenheitTemperature);
+}
+
+function showFahrenheitTemperature(response) {
+  let celsiusTemp = document.querySelector("#fahrenheit-link");
+  let cityName = document.querySelector("#displayed-city");
+  let dailyHigh = document.querySelector("#daily-high");
+  let dailyLow = document.querySelector("#daily-low");
+
+  if ((celsiusTemp.innerHTML = `${Math.round(fahrenheitTemperature)}°F`)) {
+    document.querySelector("#celsius-link").innerHTML = `°C`;
+  } else {
+    document.querySelector("#celsius-link").innerHTML = `°F`;
+  }
+  cityName.innerHTML = response.data.name;
+  dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
+  dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
+}
+
 function pressCurrentLocation() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
@@ -138,6 +168,8 @@ function showPositionTemperature(response) {
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
 }
 
+let fahrenheitTemperature = null;
+
 let currentDate = document.querySelector("#current-date");
 let todaysDate = new Date();
 currentDate.innerHTML = formatedDate(todaysDate);
@@ -147,6 +179,9 @@ citySearch.addEventListener("submit", searchCity);
 
 let celsiusElement = document.querySelector("#celsius-link");
 celsiusElement.addEventListener("click", retrieveCelsiusTemp);
+
+let fahrenheitElement = document.querySelector("#fahrenheit-link");
+fahrenheitElement.addEventListener("click", retrieveFahrenheitTemp);
 
 let buttonElement = document.querySelector("#current-weather-button");
 buttonElement.addEventListener("click", pressCurrentLocation);
