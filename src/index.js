@@ -98,12 +98,12 @@ function showCelsiusTemperature(response) {
   let cityName = document.querySelector("#displayed-city");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
+  fahrenheitTemp.classList.remove("active");
 
   if ((fahrenheitTemp.innerHTML = `${Math.round(response.data.main.temp)}°C`)) {
     document.querySelector("#celsius-link").innerHTML = `°F`;
-  } else {
-    document.querySelector("#celsius-link").innerHTML = `°C`;
   }
+
   cityName.innerHTML = response.data.name;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°C`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°C`;
@@ -122,16 +122,14 @@ function retrieveFahrenheitTemp(event) {
 }
 
 function showFahrenheitTemperature(response) {
-  let celsiusTemp = document.querySelector("#fahrenheit-link");
+  let celsiusTemp = document.querySelector("#celsius-link");
+  let fahrenheitTemp = document.querySelector("#fahrenheit-link");
   let cityName = document.querySelector("#displayed-city");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
 
-  if ((celsiusTemp.innerHTML = `${Math.round(fahrenheitTemperature)}°F`)) {
-    document.querySelector("#celsius-link").innerHTML = `°C`;
-  } else {
-    document.querySelector("#celsius-link").innerHTML = `°F`;
-  }
+  fahrenheitTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
+  celsiusTemp.innerHTML = `°C`;
   cityName.innerHTML = response.data.name;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
@@ -168,11 +166,11 @@ function showPositionTemperature(response) {
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
 }
 
-let fahrenheitTemperature = null;
-
 let currentDate = document.querySelector("#current-date");
 let todaysDate = new Date();
 currentDate.innerHTML = formatedDate(todaysDate);
+
+let fahrenheitTemperature = null;
 
 let citySearch = document.querySelector("#search-form");
 citySearch.addEventListener("submit", searchCity);
