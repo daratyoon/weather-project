@@ -58,7 +58,7 @@ function showCityTemperature(response) {
   fahrenheitTemperature = response.data.main.temp;
 
   let temperature = Math.round(fahrenheitTemperature);
-  let cityTemperature = document.querySelector("#fahrenheit-link");
+  let cityTemperature = document.querySelector("#todays-weather");
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
   let currentIcon = document.querySelector("#current-icon");
@@ -72,7 +72,7 @@ function showCityTemperature(response) {
     response.data.main.temp_min
   )}°F`;
 
-  cityTemperature.innerHTML = `${temperature}°F`;
+  cityTemperature.innerHTML = `${temperature}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
   currentIcon.setAttribute(
@@ -94,16 +94,17 @@ function retrieveCelsiusTemp(event) {
 }
 
 function showCelsiusTemperature(response) {
+  let todaysWeather = document.querySelector("#todays-weather");
   let fahrenheitTemp = document.querySelector("#fahrenheit-link");
+  let celsiusTemp = document.querySelector("#celsius-link");
   let cityName = document.querySelector("#displayed-city");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
   fahrenheitTemp.classList.remove("active");
 
-  if ((fahrenheitTemp.innerHTML = `${Math.round(response.data.main.temp)}°C`)) {
-    document.querySelector("#celsius-link").innerHTML = `°F`;
-  }
-
+  todaysWeather.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemp.innerHTML = `°C`;
+  celsiusTemp.innerHTML = `|°F`;
   cityName.innerHTML = response.data.name;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°C`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°C`;
@@ -122,14 +123,16 @@ function retrieveFahrenheitTemp(event) {
 }
 
 function showFahrenheitTemperature(response) {
+  let todaysWeather = document.querySelector("#todays-weather");
   let celsiusTemp = document.querySelector("#celsius-link");
   let fahrenheitTemp = document.querySelector("#fahrenheit-link");
   let cityName = document.querySelector("#displayed-city");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
 
-  fahrenheitTemp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
-  celsiusTemp.innerHTML = `°C`;
+  todaysWeather.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemp.innerHTML = `°F`;
+  celsiusTemp.innerHTML = `|°C`;
   cityName.innerHTML = response.data.name;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
@@ -149,7 +152,7 @@ function retrievePosition(position) {
 }
 
 function showPositionTemperature(response) {
-  let currentTemp = document.querySelector("#fahrenheit-link");
+  let currentTemp = document.querySelector("#todays-weather");
   let currentCity = document.querySelector("#displayed-city");
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
@@ -158,7 +161,7 @@ function showPositionTemperature(response) {
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
 
-  currentTemp.innerHTML = `${temperature}°F`;
+  currentTemp.innerHTML = `${temperature}`;
   currentCity.innerHTML = `${city}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;

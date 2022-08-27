@@ -50,6 +50,10 @@ footer {
 .fahrenheitTemp {
   color: #ea6691;
   text-decoration: none;
+  font-size: 12px;
+  position: absolute;
+  margin-left: 12px;
+  margin-top: 4px;
 }
 
 .celsiusTemp {
@@ -57,7 +61,7 @@ footer {
   color: #7c7c7c;
   text-decoration: none;
   position: absolute;
-  margin-left: 4px;
+  margin-left: 29px;
   margin-top: 4px;
 }
 
