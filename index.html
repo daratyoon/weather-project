@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>🌞 Weather Around the World</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=PT+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,169 +23,73 @@
   <body>
     <div class="container">
       <header>
-         <span>
+        <span>
           <button class="currentWeatherButton" id="current-weather-button">
-        Current Weather
+            Current Weather
           </button>
         </span>
         <div class="todaysWeather">
           <h1 id="displayed-city">
-            📍 
+            📍
             <br />
             City
           </h1>
           <div class="clearfix">
             <div class="focalWeather">
               <strong id="todays-weather"></strong>
-            <span><a href="#" class="fahrenheitTemp" id="fahrenheit-link">°F </a></span> <span class="celsiusTemp"> 
-                <a href="#" id="celsius-link">|°C </a> </span>
-           <br />
-              <img src="" alt="" id="current-icon" class="currentIcon"/>
-            </div>
+              <span
+                ><a href="#" class="fahrenheitTemp" id="fahrenheit-link"
+                  >°F
+                </a></span
+              >
+              <span class="celsiusTemp">
+                <a href="#" id="celsius-link">|°C </a>
+              </span>
+              <br />
+              <img src="" alt="" id="current-icon" class="currentIcon" />
             </div>
           </div>
-        
+        </div>
+
         <div class="dailyInformation" id="current-date">
-        <ul>
-          <li id="todays-day">
-            Day
-          </li>
-          <li id="todays-date">
-            Month 18, 2022
-          </li>
-          <li id="todays-hour">
-          12:18PM
-          </li>
-        </ul>
+          <ul>
+            <li id="todays-day">Day</li>
+            <li id="todays-date">Month 18, 2022</li>
+            <li id="todays-hour">12:18PM</li>
+          </ul>
         </div>
 
         <div class="dailyHiLos">
           <ul>
-            <li id="daily-high">
-            Hi: °F
-            </li>
-            <li id="daily-low">
-            Lo: °F
-            </li>
-            <li id="daily-condition">
-            </li>
-            <li id="daily-wind-speed">
-            </li>
+            <li id="daily-high">Hi: °F</li>
+            <li id="daily-low">Lo: °F</li>
+            <li id="daily-condition"></li>
+            <li id="daily-wind-speed"></li>
           </ul>
         </div>
       </header>
-     
 
       <form class="searchBar" id="search-form" class="mb-3">
-        <input type="text" placeholder="Please Enter City" id="search-city" autocomplete="off"/>
+        <input
+          type="text"
+          placeholder="Please Enter City"
+          id="search-city"
+          autocomplete="off"
+        />
         <input type="submit" value="Search" />
       </form>
       <br />
       <section>
-      <div class="forecast" id="forecast">
-        <div class="row">
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Tomorrow</h5>
-                <h6 class="card-subtitle mb-2 text-muted">July 19</h6>
-                <p class="card-text">
-                  High:100°F
-                  <br />
-                  Low: 78°F
-                  <br />
-                  <div class="emoji">☀️</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 0%</small></p>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Wednesday</h5>
-                <h6 class="card-subtitle mb-2 text-muted">July 20</h6>
-                <p class="card-text">
-                  High:105°F
-                  <br />
-                  Low: 79°F
-                  <br />
-                  <div class="emoji">🌤</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 20%</small></p>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Thursday</h5>
-                <h6 class="card-subtitle mb-2 text-muted">July 21</h6>
-                <p class="card-text">
-                  High:100°F
-                  <br />
-                  Low: 78°F
-                  <br />
-                  <div class="emoji">🌦</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 90%</small></p>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <h6 class="card-subtitle mb-2 text-muted">July 22</h6>
-                <p class="card-text">
-                  High:100°F
-                  <br />
-                  Low: 80°F
-                  <br />
-                  <div class="emoji">☀️</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 15%</small></p>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Saturday</h5>
-                <h6 class="card-subtitle mb-2 text-muted">July 23</h6>
-                <p class="card-text">
-                  High:107°F
-                  <br />
-                  Low: 80°F
-                  <br />
-                  <div class="emoji">🌧</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 100%</small></p>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Sunday</h5>
-                <h6 class="card-subtitle mb-2 text-muted">July 24</h6>
-                <p class="card-text">
-                  High:102°F
-                  <br />
-                  Low: 79°F
-                  <br />
-                  <div class="emoji">🌩</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 40%</small></p>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="forecast" id="forecast"></div>
       </section>
       <footer>
         <p>
-          <a href="https://github.com/daratyoon/weather-project" class="gitHubLink" target="blank">Open-sourced Code</a>
+          <a
+            href="https://github.com/daratyoon/weather-project"
+            class="gitHubLink"
+            target="blank"
+            >Open-sourced Code</a
+          >
           by Sandra Tsai-Yun
         </p>
       </footer>
