@@ -198,6 +198,7 @@ function showPositionTemperature(response) {
   let windSpeed = document.querySelector("#daily-wind-speed");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
+  let currentIcon = document.querySelector("#current-icon");
 
   currentTemp.innerHTML = `${temperature}`;
   currentCity.innerHTML = `${city}`;
@@ -205,6 +206,10 @@ function showPositionTemperature(response) {
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let currentDate = document.querySelector("#current-date");
