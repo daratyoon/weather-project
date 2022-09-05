@@ -43,7 +43,7 @@ function formatedDate(date) {
   ${hour}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -73,15 +73,10 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function searchCity(event) {
-  event.preventDefault();
-  let newCity = document.querySelector("#search-city");
-  let city = document.querySelector("#displayed-city");
-  city.innerHTML = `📍 ${newCity.value}`;
+function getForecast(coordinates) {
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=imperial`;
-
-  axios.get(apiUrl).then(showCityTemperature);
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showCityTemperature(response) {
@@ -113,9 +108,15 @@ function showCityTemperature(response) {
   getForecast(response.data.coord);
 }
 
-function getForecast(coordinates) {
+function searchCity(event) {
+  event.preventDefault();
+  let newCity = document.querySelector("#search-city");
+  let city = document.querySelector("#displayed-city");
+  city.innerHTML = `📍 ${newCity.value}`;
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(showCityTemperature);
 }
 
 function retrieveCelsiusTemp(event) {
@@ -209,8 +210,6 @@ function showPositionTemperature(response) {
 let currentDate = document.querySelector("#current-date");
 let todaysDate = new Date();
 currentDate.innerHTML = formatedDate(todaysDate);
-
-displayForecast();
 
 let fahrenheitTemperature = null;
 
