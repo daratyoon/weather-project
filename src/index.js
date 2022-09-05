@@ -211,7 +211,7 @@ function showPositionTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  celsiusElement.innerHTML = `(${temperature} - 32) * 5/9`;
+  celsiusElement.innerHTML = `(${temperature}-32) * 5/9`;
 }
 
 let currentDate = document.querySelector("#current-date");
