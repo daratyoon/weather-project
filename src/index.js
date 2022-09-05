@@ -27,7 +27,7 @@ function formatedDate(date) {
   let month = months[date.getMonth()];
   let dateNow = date.getDate();
   let year = date.getFullYear();
-  let hour = date.getHours();
+  let hour = `Last Updated: ${date.getHours()}`;
   if (hour < 10) {
     hour = `0${hour}`;
   }
@@ -212,7 +212,7 @@ function showPositionTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  celsiusElement.innerHTML = `/ ${celsiusTemp} °C`;
+  celsiusElement.innerHTML = `| ${celsiusTemp} °C`;
 }
 
 let currentDate = document.querySelector("#current-date");
