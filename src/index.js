@@ -47,12 +47,14 @@ function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `<div class="col-2">
+  let days = ["Tuesday", "Wednesday", "Thursday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
           <div class="card">
              <div class="card-body">
-                <h5 class="card-title">Tues</h5>
+                <h5 class="card-title">${day}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Sept 6</h6>
                 <p class="card-text">
                   High:100°F
@@ -65,6 +67,7 @@ function displayForecast() {
               </div>
           </div>
       </div>`;
+  });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -106,6 +109,13 @@ function showCityTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 }
 
 function retrieveCelsiusTemp(event) {
