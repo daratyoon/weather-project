@@ -43,6 +43,28 @@ function formatedDate(date) {
   ${hour}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = `<div class="row">
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${day}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${date}</h6>
+                <p class="card-text">
+                  High:100°F
+                  <br />
+                  Low: 78°F
+                  <br />
+                  <div class="emoji">☀️</div>
+                  <p class="card-text"><small class="text-muted">Chance of Rain: 0%</small></p>
+                </p>
+              </div>
+            </div>
+          </div>`;
+}
+
 function searchCity(event) {
   event.preventDefault();
   let newCity = document.querySelector("#search-city");
@@ -79,6 +101,8 @@ function showCityTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  displayForecast();
 }
 
 function retrieveCelsiusTemp(event) {
