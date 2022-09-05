@@ -212,7 +212,7 @@ function showPositionTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  celsiusElement.innerHTML = `${celsiusTemp} °C;
+  celsiusElement.innerHTML = `/ ${celsiusTemp} °C`;
 }
 
 let currentDate = document.querySelector("#current-date");
