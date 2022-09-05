@@ -199,6 +199,7 @@ function showPositionTemperature(response) {
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
   let currentIcon = document.querySelector("#current-icon");
+  let celsiusElement = document.querySelector("#celsius-link");
 
   currentTemp.innerHTML = `${temperature}`;
   currentCity.innerHTML = `${city}`;
@@ -210,6 +211,7 @@ function showPositionTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  celsiusElement.innerHTML = `(${temperature} - 32) * 5/9`;
 }
 
 let currentDate = document.querySelector("#current-date");
