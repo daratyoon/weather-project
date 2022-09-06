@@ -111,10 +111,12 @@ function showCityTemperature(response) {
 function searchCity(event) {
   event.preventDefault();
   let newCity = document.querySelector("#search-city");
-  let city = document.querySelector("#displayed-city");
-  city.innerHTML = `📍 ${newCity.value}`;
+  search(newCity.value);
+}
+
+function search(city) {
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(showCityTemperature);
 }
