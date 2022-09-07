@@ -86,7 +86,6 @@ function displayForecast(response) {
       </div>`;
     }
   });
-  console.log(forecast);
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -118,7 +117,7 @@ function showCityTemperature(response) {
 
   cityTemperature.innerHTML = `${temperature}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
-  windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
+  windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}mph`;
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -234,6 +233,8 @@ function showPositionTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   celsiusElement.innerHTML = `| ${celsiusTemp} °C`;
+
+  getForecast(response.data.coord);
 }
 
 let currentDate = document.querySelector("#current-date");
