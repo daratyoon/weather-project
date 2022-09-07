@@ -1,11 +1,12 @@
 body {
   font-family: "PT Mono", monospace;
   border: solid;
+  border-width: thick;
   margin: 30px 50px;
   padding: 50px 80px;
   border-radius: 280px;
-  border-color: rgba(84, 173, 149, 0.8);
-  width: 93%;
+  border-color: rgba(84, 173, 149, 0.6);
+  width: 95%;
 }
 header {
   margin-bottom: 65px;

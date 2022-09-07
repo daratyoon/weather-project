@@ -43,31 +43,50 @@ function formatedDate(date) {
   ${hour}:${minutes}`;
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Tuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+
+  forecast.forEach(function (forecastDays, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
           <div class="card">
              <div class="card-body">
-                <h5 class="card-title">${day}</h5>
+                <h5 class="card-title">${formatForecastDay(
+                  forecastDays.dt
+                )}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Sept 6</h6>
                 <p class="card-text">
-                  High:100°F
+                  ${Math.round(forecastDays.temp.max)}°F
                   <br />
-                  Low: 78°F
+                  ${Math.round(forecastDays.temp.min)}°F
                   <br />
-                  <div class="emoji">☀️</div>
-                  <p class="card-text"><small class="text-muted">Chance of Rain: 0%</small></p>
+                  <img
+                    src="http://openweathermap.org/img/wn/${
+                      forecastDays.weather[0].icon
+                    }@2x.png" alt="" width="42" />
+                  <p class="card-text"><small class="text-muted"> ${
+                    forecastDays.weather[0].main
+                  } </small></p>
                 </p>
               </div>
           </div>
       </div>`;
+    }
   });
+  console.log(forecast);
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
