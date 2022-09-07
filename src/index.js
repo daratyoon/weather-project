@@ -67,18 +67,18 @@ function displayForecast(response) {
                 <h5 class="card-title">${formatForecastDay(
                   forecastDays.dt
                 )}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Sept 6</h6>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
                 <p class="card-text">
                   ${Math.round(forecastDays.temp.max)}°F
-                  <br />
-                  ${Math.round(forecastDays.temp.min)}°F
-                  <br />
+                  <div class="forecastLow"> ${Math.round(
+                    forecastDays.temp.min
+                  )}°F </div>
                   <img
                     src="http://openweathermap.org/img/wn/${
                       forecastDays.weather[0].icon
-                    }@2x.png" alt="" width="42" />
+                    }@2x.png" alt="" width="48" />
                   <p class="card-text"><small class="text-muted"> ${
-                    forecastDays.weather[0].main
+                    forecastDays.weather[0].description
                   } </small></p>
                 </p>
               </div>

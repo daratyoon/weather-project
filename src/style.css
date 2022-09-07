@@ -7,10 +7,12 @@ body {
   border-radius: 280px;
   border-color: rgba(84, 173, 149, 0.6);
   width: 95%;
+  background: linear-gradient(to top, #a8edea 0%, #ffd7c9 100%);
 }
 header {
-  margin-bottom: 65px;
+  margin-bottom: 50px;
 }
+
 h1,
 h2 {
   text-align: center;
@@ -19,6 +21,24 @@ h2 {
 
 a {
   text-decoration: none;
+}
+
+p {
+  margin-top: 20px;
+  margin-bottom: 0rem;
+}
+
+p .text-muted {
+  font-size: 13px;
+}
+
+div .forecastLow {
+  color: #727171;
+  margin-bottom: 2px;
+}
+
+.mb-2 {
+  margin-bottom: 1.5rem !important;
 }
 
 li {
@@ -49,7 +69,7 @@ footer {
 }
 
 .fahrenheitTemp {
-  color: #ea6691;
+  color: #ec6e4c;
   text-decoration: none;
   font-size: 12px;
   position: absolute;
@@ -67,9 +87,9 @@ footer {
 }
 
 .focalWeather {
-  color: #ea6691;
+  color: #ec6e4c;
   font-family: "Comfortaa", cursive;
-  font-size: 2.5em;
+  font-size: 3em;
 }
 .todaysWeather {
   text-align: center;
@@ -77,7 +97,7 @@ footer {
   border-radius: 100px;
   border-color: rgba(84, 173, 149, 0.5);
   margin: 34px 438px;
-  padding: 29px 26px;
+  padding: 30px 32px;
   width: auto;
   display: inline-block;
 }
@@ -92,14 +112,14 @@ footer {
 .dailyInformation {
   position: absolute;
   left: 29%;
-  top: 165px;
+  top: 243px;
 }
 
 .dailyHiLos {
   position: absolute;
   text-align: right;
-  right: 27%;
-  top: 160px;
+  right: 28%;
+  top: 233px;
 }
 
 .searchBar {
@@ -109,9 +129,10 @@ footer {
 }
 .card {
   text-align: center;
+  background: linear-gradient(to top, #a8edea 0%, #ffd7c9 200%);
 }
 .card .card-title {
-  color: #e95989;
+  color: #ec6e4c;
   font-weight: 900;
   background-color: rgba(84, 173, 149, 0.3);
   border-radius: 10px;
