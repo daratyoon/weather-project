@@ -113,10 +113,10 @@ function showCityTemperature(response) {
     response.data.main.temp_min
   )}°F`;
 
-  city.innerHTML = `📍 ${response.data.name}`;
+  city.innerHTML = `📍${response.data.name}`;
   cityTemperature.innerHTML = `${temperature}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
-  windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}mph`;
+  windSpeed.innerHTML = `Wind Spd ${Math.round(response.data.wind.speed)}mph`;
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -143,7 +143,7 @@ function retrieveCelsiusTemp(event) {
   celsiusElement.classList.add("active");
   fahrenheitElement.classList.remove("active");
   let newCity = document.querySelector("#search-city");
-  city.innerHTML = `📍 ${newCity.value}`;
+  city.innerHTML = `📍${newCity.value}`;
 
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=metric`;
@@ -157,7 +157,7 @@ function showCelsiusTemperature(response) {
   let dailyLow = document.querySelector("#daily-low");
 
   todaysWeather.innerHTML = Math.round(response.data.main.temp);
-  city.innerHTML = `📍 ${response.data.name}`;
+  city.innerHTML = `📍${response.data.name}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°C`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°C`;
 }
@@ -167,7 +167,7 @@ function retrieveFahrenheitTemp(event) {
   fahrenheitElement.classList.add("active");
   celsiusElement.classList.remove("active");
   let newCity = document.querySelector("#search-city");
-  city.innerHTML = `📍 ${newCity.value}`;
+  city.innerHTML = `📍${newCity.value}`;
 
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity.value}&appid=${apiKey}&units=imperial`;
@@ -181,7 +181,7 @@ function showFahrenheitTemperature(response) {
   let dailyLow = document.querySelector("#daily-low");
 
   todaysWeather.innerHTML = Math.round(response.data.main.temp);
-  city.innerHTML = `📍 ${response.data.name}`;
+  city.innerHTML = `📍${response.data.name}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
 }
@@ -211,7 +211,7 @@ function showPositionTemperature(response) {
   let celsiusTemp = Math.round(temperature - (32 * 5) / 9);
 
   currentTemp.innerHTML = `${temperature}`;
-  city.innerHTML = `📍 ${searchedCity}`;
+  city.innerHTML = `📍${searchedCity}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
