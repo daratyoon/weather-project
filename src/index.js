@@ -105,9 +105,7 @@ function showCityTemperature(response) {
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
   let currentIcon = document.querySelector("#current-icon");
-  document.querySelector(
-    "#displayed-city"
-  ).innerHTML = `📍 ${response.data.name}`;
+
   document.querySelector("#daily-high").innerHTML = `Hi ${Math.round(
     response.data.main.temp_max
   )}°F`;
@@ -115,6 +113,7 @@ function showCityTemperature(response) {
     response.data.main.temp_min
   )}°F`;
 
+  city.innerHTML = `📍 ${response.data.name}`;
   cityTemperature.innerHTML = `${temperature}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}mph`;
@@ -144,7 +143,6 @@ function retrieveCelsiusTemp(event) {
   celsiusElement.classList.add("active");
   fahrenheitElement.classList.remove("active");
   let newCity = document.querySelector("#search-city");
-  let city = document.querySelector("#displayed-city");
   city.innerHTML = `📍 ${newCity.value}`;
 
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
@@ -155,12 +153,11 @@ function retrieveCelsiusTemp(event) {
 
 function showCelsiusTemperature(response) {
   let todaysWeather = document.querySelector("#todays-weather");
-  let cityName = document.querySelector("#displayed-city");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
 
   todaysWeather.innerHTML = Math.round(response.data.main.temp);
-  cityName.innerHTML = response.data.name;
+  city.innerHTML = `📍 ${response.data.name}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°C`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°C`;
 }
@@ -170,7 +167,6 @@ function retrieveFahrenheitTemp(event) {
   fahrenheitElement.classList.add("active");
   celsiusElement.classList.remove("active");
   let newCity = document.querySelector("#search-city");
-  let city = document.querySelector("#displayed-city");
   city.innerHTML = `📍 ${newCity.value}`;
 
   let apiKey = "e3af10cefc7c7a7f4ca878121a656948";
@@ -181,12 +177,11 @@ function retrieveFahrenheitTemp(event) {
 
 function showFahrenheitTemperature(response) {
   let todaysWeather = document.querySelector("#todays-weather");
-  let cityName = document.querySelector("#displayed-city");
   let dailyHigh = document.querySelector("#daily-high");
   let dailyLow = document.querySelector("#daily-low");
 
   todaysWeather.innerHTML = Math.round(response.data.main.temp);
-  cityName.innerHTML = response.data.name;
+  city.innerHTML = `📍 ${response.data.name}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
   dailyLow.innerHTML = `Lo ${Math.round(response.data.main.temp_min)}°F`;
 }
@@ -206,9 +201,8 @@ function retrievePosition(position) {
 
 function showPositionTemperature(response) {
   let currentTemp = document.querySelector("#todays-weather");
-  let currentCity = document.querySelector("#displayed-city");
   let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
+  let searchedCity = response.data.name;
   let dailyDescription = document.querySelector("#daily-condition");
   let windSpeed = document.querySelector("#daily-wind-speed");
   let dailyHigh = document.querySelector("#daily-high");
@@ -217,7 +211,7 @@ function showPositionTemperature(response) {
   let celsiusTemp = Math.round(temperature - (32 * 5) / 9);
 
   currentTemp.innerHTML = `${temperature}`;
-  currentCity.innerHTML = `📍 ${city}`;
+  city.innerHTML = `📍 ${searchedCity}`;
   dailyDescription.innerHTML = response.data.weather[0].description;
   windSpeed.innerHTML = `Wind Spd: ${Math.round(response.data.wind.speed)}`;
   dailyHigh.innerHTML = `Hi ${Math.round(response.data.main.temp_max)}°F`;
@@ -237,6 +231,8 @@ let todaysDate = new Date();
 currentDate.innerHTML = formatedDate(todaysDate);
 
 let fahrenheitTemperature = null;
+
+let city = document.querySelector("#displayed-city");
 
 let citySearch = document.querySelector("#search-form");
 citySearch.addEventListener("submit", searchCity);
