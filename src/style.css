@@ -6,7 +6,7 @@ body {
   padding: 50px 80px;
   border-radius: 280px;
   border-color: rgba(84, 173, 149, 0.6);
-  width: 95%;
+  width: 94%;
   background: linear-gradient(to top, #a8edea 0%, #ffd7c9 100%);
 }
 header {
@@ -70,7 +70,6 @@ footer {
 
 .fahrenheitTemp {
   color: #ec6e4c;
-  text-decoration: none;
   font-size: 12px;
   position: absolute;
   margin-left: 12px;
@@ -80,10 +79,18 @@ footer {
 .celsiusTemp {
   font-size: 12px;
   color: #7c7c7c;
-  text-decoration: none;
   position: absolute;
   margin-left: 29px;
   margin-top: 4px;
+}
+
+.focalWeather .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.focalWeather .active:hover {
+  text-decoration: none;
 }
 
 .focalWeather {
@@ -100,13 +107,6 @@ footer {
   padding: 30px 32px;
   width: auto;
   display: inline-block;
-}
-
-.todayCelsius {
-  position: relative;
-  text-align: right;
-  right: 30%;
-  color: #7c7c7c;
 }
 
 .dailyInformation {
