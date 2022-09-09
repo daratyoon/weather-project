@@ -1,13 +1,5 @@
 body {
   font-family: "PT Mono", monospace;
-  border: solid;
-  border-width: thick;
-  margin: 30px 50px;
-  padding: 50px 80px;
-  border-radius: 280px;
-  border-color: rgba(84, 173, 149, 0.6);
-  width: 94%;
-  background: linear-gradient(to top, #a8edea 0%, #ffd7c9 100%);
 }
 header {
   margin-bottom: 50px;
@@ -35,6 +27,17 @@ p .text-muted {
 div .forecastLow {
   color: #727171;
   margin-bottom: 2px;
+}
+
+.borderBody {
+  border: solid;
+  border-width: thick;
+  margin: 30px 50px;
+  padding: 50px 80px;
+  border-radius: 280px;
+  border-color: rgba(84, 173, 149, 0.6);
+  width: 94%;
+  background: linear-gradient(to top, #a8edea 0%, #ffd7c9 100%);
 }
 
 .mb-2 {

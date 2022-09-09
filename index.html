@@ -21,75 +21,77 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <span>
-          <button class="currentWeatherButton" id="current-weather-button">
-            Current Weather
-          </button>
-        </span>
-        <div class="todaysWeather">
-          <h1 id="displayed-city">
-            📍
-            <br />
-          </h1>
-          <div class="clearfix">
-            <div class="focalWeather">
-              <strong id="todays-weather"></strong>
-              <span class="fahrenheitTemp"
-                ><a href="#" class="active" id="fahrenheit-link">°F </a></span
-              >
-              <span class="celsiusTemp">
-                <a href="#" id="celsius-link">|°C </a>
-              </span>
+    <div class="borderBody">
+      <div class="container">
+        <header>
+          <span>
+            <button class="currentWeatherButton" id="current-weather-button">
+              Current Weather
+            </button>
+          </span>
+          <div class="todaysWeather">
+            <h1 id="displayed-city">
+              📍
               <br />
-              <img src="" alt="" id="current-icon" class="currentIcon" />
+            </h1>
+            <div class="clearfix">
+              <div class="focalWeather">
+                <strong id="todays-weather"></strong>
+                <span class="fahrenheitTemp"
+                  ><a href="#" class="active" id="fahrenheit-link">°F </a></span
+                >
+                <span class="celsiusTemp">
+                  <a href="#" id="celsius-link">|°C </a>
+                </span>
+                <br />
+                <img src="" alt="" id="current-icon" class="currentIcon" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="dailyInformation" id="current-date">
-          <ul>
-            <li id="todays-day"></li>
-            <li id="todays-date"></li>
-            <li id="todays-hour"></li>
-          </ul>
-        </div>
+          <div class="dailyInformation" id="current-date">
+            <ul>
+              <li id="todays-day"></li>
+              <li id="todays-date"></li>
+              <li id="todays-hour"></li>
+            </ul>
+          </div>
 
-        <div class="dailyHiLos">
-          <ul>
-            <li id="daily-high"></li>
-            <li id="daily-low"></li>
-            <li id="daily-condition"></li>
-            <li id="daily-wind-speed"></li>
-          </ul>
-        </div>
-      </header>
+          <div class="dailyHiLos">
+            <ul>
+              <li id="daily-high"></li>
+              <li id="daily-low"></li>
+              <li id="daily-condition"></li>
+              <li id="daily-wind-speed"></li>
+            </ul>
+          </div>
+        </header>
 
-      <form class="searchBar" id="search-form" class="mb-3">
-        <input
-          type="text"
-          placeholder="Please Enter City"
-          id="search-city"
-          autocomplete="off"
-        />
-        <input type="submit" value="Search" />
-      </form>
-      <br />
-      <section>
-        <div class="forecast" id="forecast"></div>
-      </section>
-      <footer>
-        <p>
-          <a
-            href="https://github.com/daratyoon/weather-project"
-            class="gitHubLink"
-            target="blank"
-            >Open-sourced Code</a
-          >
-          by Sandra Tsai-Yun
-        </p>
-      </footer>
+        <form class="searchBar" id="search-form" class="mb-3">
+          <input
+            type="text"
+            placeholder="Please Enter City"
+            id="search-city"
+            autocomplete="off"
+          />
+          <input type="submit" value="Search" />
+        </form>
+        <br />
+        <section>
+          <div class="forecast" id="forecast"></div>
+        </section>
+        <footer>
+          <p>
+            <a
+              href="https://github.com/daratyoon/weather-project"
+              class="gitHubLink"
+              target="blank"
+              >Open-sourced Code</a
+            >
+            by Sandra Tsai-Yun
+          </p>
+        </footer>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>
